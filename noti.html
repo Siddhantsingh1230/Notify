@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Notification</title>
+  </head>
+  <body>
+    <button id="btn">Permission</button>
+    <script type="text/javascript" charset="utf-8">
+      let btn=document.getElementById('btn');
+      btn.addEventListener('click',()=>{
+        Notification.requestPermission().then(pm=>{
+          if(pm==="granted")
+          {
+            const noti=new Notification("My Notification ",{
+              body:"Why its not working",
+
+            });
+
+
+          }
+        })
+      });
+    </script>
+  </body>
+</html>
