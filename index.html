@@ -12,7 +12,7 @@
         Notification.requestPermission().then(pm=>{
           if(pm==="granted")
           {
-            const noti=new Notification("Example Notify",{
+            new ServiceWorkerRegistration.showNotification("Example Notify",{
               body:"Many Text",
 
             });
