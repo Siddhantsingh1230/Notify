@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Notification</title>
+  </head>
+  <body>
+    <button onclick="showNotification()" id="btn">Permission</button>
+    <script type="text/javascript" charset="utf-8">
+      let btn = document.getElementById("btn");
+      navigator.serviceWorker.register("sw.js");
+
+      function showNotification() {
+        Notification.requestPermission((result) => {
+          if (result === "granted") {
+            navigator.serviceWorker.ready.then((registration) => {
+              registration.showNotification("Vibration Sample", {
+                body: "Buzz! Buzz!",
+                icon: "../images/touch/chrome-touch-icon-192x192.png",
+                vibrate: [200, 100, 200, 100, 200, 100, 200],
+                tag: "vibration-sample",
+              });
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
